@@ -56,9 +56,13 @@ O script irá:
 
 ## Resultado
 
-Abaixo está a visualização da árvore de decisão treinada:
+Abaixo estão os resultados gerados pelo script:
 
-![Árvore de Decisão](./assets/image/arvore_decisao.png)
+### Árvore de Decisão Treinada
+![Árvore de Decisão](arvore_decisao.png)
+
+### Resultados das Previsões
+![Resultados das Previsões](resultados_previsoes.png)
 
 ## Dependências
 

@@ -96,7 +96,26 @@ print(f"Acurácia no conjunto de entrada (50 linhas): {acuracia:.3f}\n")
 print(tabulate(saida_fmt.values, headers=saida_fmt.columns, tablefmt="github", stralign="left"))
 
 # ---------------------------
-# 7) VISUALIZAR A ÁRVORE E AS REGRAS TEXUAIS PARA SLIDES
+# 7) VISUALIZAR OS RESULTADOS DAS PREVISÕES
+# ---------------------------
+
+# Conta acertos e erros
+acertos = (entrada["taxa_prevista"] == entrada["taxa_verdade"]).sum()
+erros = len(entrada) - acertos
+
+# Cria gráfico de barras para acertos vs erros
+plt.figure(figsize=(6, 4))
+plt.bar(['Acertos', 'Erros'], [acertos, erros], color=['green', 'red'])
+plt.title('Resultados das Previsões da Árvore de Decisão')
+plt.ylabel('Número de Casos')
+plt.ylim(0, len(entrada))
+for i, v in enumerate([acertos, erros]):
+    plt.text(i, v + 0.5, str(v), ha='center', fontweight='bold')
+plt.savefig('./assets/image/resultados_previsoes.png', dpi=300, bbox_inches='tight')
+plt.show()
+
+# ---------------------------
+# 8) VISUALIZAR A ÁRVORE E AS REGRAS TEXUAIS PARA SLIDES
 # ---------------------------
 
 # Cria uma figura para o gráfico da árvore de decisão
