@@ -58,7 +58,7 @@ O script irá:
 
 Abaixo está a visualização da árvore de decisão treinada:
 
-![Árvore de Decisão](arvore_decisao.png)
+![Árvore de Decisão](./assets/image/arvore_decisao.png)
 
 ## Dependências
 

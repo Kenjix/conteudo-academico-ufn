@@ -18,7 +18,7 @@ from tabulate import tabulate
 # ---------------------------
 
 # Lê o CSV de treino com separador ';' e vírgula como separador decimal
-treino = pd.read_csv("sistemas-de-apoio-a-decisao/atividade2/assets/datasets/dataset_treinamento.csv", sep=";", decimal=",")  # contém 'renda', 'dividas', 'pontuacao_credito', 'taxa_juros'
+treino = pd.read_csv("./assets/datasets/dataset_treinamento.csv", sep=";", decimal=",")  # contém 'renda', 'dividas', 'pontuacao_credito', 'taxa_juros'
 
 # Separa as features (X) e o alvo (y) a partir do DataFrame de treino
 X_train = treino[["renda", "dividas", "pontuacao_credito"]]   # três colunas numéricas usadas como entradas do modelo
@@ -39,7 +39,7 @@ clf.fit(X_train, y_train)  # o modelo aprende a separar as classes seguindo divi
 # ---------------------------
 
 # Lê o CSV de entrada com as mesmas configurações de separador e decimal
-entrada = pd.read_csv("/workspaces/conteudo-academico-ufn/sistemas-de-apoio-a-decisao/atividade2/assets/datasets/dataset_entrada.csv", sep=";", decimal=",")  # contém 'renda', 'dividas' e 'pontuacao_credito' apenas
+entrada = pd.read_csv("./assets/datasets/dataset_entrada.csv", sep=";", decimal=",")  # contém 'renda', 'dividas' e 'pontuacao_credito' apenas
 
 # ---------------------------
 # 4) DEFINIR A REGRA OFICIAL (VERDADE-TERRENO) E ROTULAR A ENTRADA
@@ -116,7 +116,7 @@ plot_tree(
 plt.title("Árvore de Decisão - Cálculo da Taxa de Juros (Treinada no conjunto de 1000 linhas)", fontsize=14) # título do gráfico
 
 # Salva o gráfico como imagem
-plt.savefig('/workspaces/conteudo-academico-ufn/sistemas-de-apoio-a-decisao/atividade2/assets/image/arvore_decisao.png', dpi=300, bbox_inches='tight')  # salva em alta resolução
+plt.savefig('./assets/image/arvore_decisao.png', dpi=300, bbox_inches='tight')  # salva em alta resolução
 
 # Ajusta layout para não cortar textos
 plt.tight_layout()  # melhora o espaçamento automaticamente
