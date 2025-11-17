@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Avaliar Plano para {{ plano.usuario.username }}</h2>
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">{{ plano.treino.nome }}</h5>
+      <p>Objetivo: {{ plano.get_objetivo_display }}</p>
+      <p>Frequência semanal: {{ plano.frequencia_semanal }}</p>
+      <p>Duração (semanas): {{ plano.duracao_semanas }}</p>
+      <p>Criado por: {{ plano.criado_por }}</p>
+    </div>
+  </div>
+
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success">Aprovar Plano</button>
+    <a href="{% url 'planos_pendentes' %}" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>
+{% endblock %}

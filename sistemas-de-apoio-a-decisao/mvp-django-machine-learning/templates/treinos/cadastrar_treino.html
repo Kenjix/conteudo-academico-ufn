@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Cadastrar Treino</h2>
+  <form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="nome" class="form-label">Nome do Treino</label>
+      <input type="text" class="form-control" id="nome" name="nome" required>
+    </div>
+    <div class="mb-3">
+      <label for="objetivo" class="form-label">Objetivo</label>
+      <select class="form-select" id="objetivo" name="objetivo" required>
+        {% for value, label in objetivos %}
+          <option value="{{ value }}">{{ label }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="nivel_experiencia" class="form-label">Nível de Experiência</label>
+      <select class="form-select" id="nivel_experiencia" name="nivel_experiencia" required>
+        <option value="">-- selecione --</option>
+        <option value="iniciante">Iniciante</option>
+        <option value="intermediario">Intermediário</option>
+        <option value="avancado">Avançado</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="descricao" class="form-label">Descrição</label>
+      <textarea class="form-control" id="descricao" name="descricao" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Cadastrar</button>
+  </form>
+  {% if sucesso %}
+    <div class="alert alert-success mt-3">Treino cadastrado com sucesso!</div>
+  {% endif %}
+</div>
+{% endblock %}

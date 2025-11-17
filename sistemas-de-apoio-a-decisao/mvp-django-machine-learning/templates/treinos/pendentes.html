@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Planos Pendentes</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Aluno</th>
+        <th>Treino</th>
+        <th>Objetivo</th>
+        <th>Criado em</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for p in planos %}
+        <tr>
+          <td>{{ p.usuario.username }}</td>
+          <td>{{ p.treino.nome }}</td>
+          <td>{{ p.get_objetivo_display }}</td>
+          <td>{{ p.criado_em|date:"Y-m-d H:i" }}</td>
+          <td><a href="{% url 'plano_aprovar' p.pk %}" class="btn btn-sm btn-primary">Avaliar / Aprovar</a></td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="5">Nenhum plano pendente.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

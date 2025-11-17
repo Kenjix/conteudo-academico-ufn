@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>{{ treino.nome }}</h2>
+  <p class="text-muted">Objetivo: {{ treino.get_objetivo_display }}</p>
+  <p>{{ treino.descricao }}</p>
+  <h5>Exercícios</h5>
+  <ul>
+    {% for te in treino.treinoexercicio_set.all %}
+      <li>{{ te.ordem }}. {{ te.exercicio }} — {{ te.series }} {{ te.repeticoes }} ({{ te.intensidade }})</li>
+    {% empty %}
+      <li>Nenhum exercício adicionado.</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

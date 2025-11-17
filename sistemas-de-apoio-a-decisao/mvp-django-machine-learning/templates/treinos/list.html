@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Treinos</h2>
+  <div class="list-group">
+    {% for t in treinos %}
+      <a href="{% url 'treinos_detail' t.pk %}" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{ t.nome }}</h5>
+          <small class="text-muted">{{ t.get_objetivo_display }}</small>
+        </div>
+        <p class="mb-1">{{ t.descricao|truncatechars:120 }}</p>
+      </a>
+    {% empty %}
+      <p>Nenhum treino cadastrado.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

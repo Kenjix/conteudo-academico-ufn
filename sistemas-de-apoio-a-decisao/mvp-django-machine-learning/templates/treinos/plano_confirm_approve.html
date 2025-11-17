@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Confirmar Aprovação</h2>
+  <p>Tem certeza que deseja aprovar o plano de treino para <strong>{{ plano.usuario.username }}</strong> - <strong>{{ plano.treino.nome }}</strong>?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success">Aprovar</button>
+    <a href="{% url 'planos_pendentes' %}" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>
+{% endblock %}

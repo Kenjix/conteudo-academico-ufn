@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Gerador de Treinos (NN)</h2>
+
+  <form method="get" class="mb-3">
+    <div class="row g-2 align-items-center">
+      <div class="col-auto">
+        <label for="usuario" class="form-label">Escolha um usuário</label>
+        <select id="usuario" name="usuario" class="form-select">
+          <option value="">-- selecione --</option>
+          {% for u in usuarios %}
+            <option value="{{ u.id }}" {% if selected and selected.id == u.id %}selected{% endif %}>{{ u.username }} — {{ u.perfil.descricao }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-auto mt-4">
+        <button class="btn btn-outline-primary" type="submit">Mostrar dados</button>
+      </div>
+    </div>
+  </form>
+
+  {% if selected %}
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ selected.username }}</h5>
+        <p class="card-text">Peso: {{ selected.peso }} kg — Altura: {{ selected.altura }} cm</p>
+        <p class="card-text">Sexo: {{ selected.sexo }} — Experiência: {{ selected.experiencia }}</p>
+        {% if selected.objetivo %}
+        <p class="card-text">Objetivo: {{ selected.objetivo }}</p>
+        {% endif %}
+        <form method="post" action="{% url 'treinos_gerador' %}">
+          {% csrf_token %}
+          <input type="hidden" name="usuario" value="{{ selected.id }}" />
+          <button type="submit" class="btn btn-success">GERAR</button>
+        </form>
+      </div>
+    </div>
+  {% endif %}
+
+</div>
+{% endblock %}

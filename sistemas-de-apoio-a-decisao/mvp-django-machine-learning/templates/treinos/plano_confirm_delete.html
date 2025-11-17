@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Confirmar Remoção</h2>
+  <p>Tem certeza que deseja remover o plano de treino para <strong>{{ plano.usuario.username }}</strong> - <strong>{{ plano.treino.nome }}</strong>?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Remover</button>
+    <a href="{% url 'meus_treinos' %}" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>
+{% endblock %}

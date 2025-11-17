@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Meus Treinos</h2>
+  {% if planos %}
+    <ul class="list-group">
+      {% for plano in planos %}
+        <li class="list-group-item">
+          {% if plano.usuario and plano.usuario != request.user %}
+            <strong>Para {{ plano.usuario.username }}: {{ plano.treino.nome }}</strong>
+          {% else %}
+            <strong>{{ plano.treino.nome }}</strong>
+          {% endif %}
+          — Objetivo: {{ plano.get_objetivo_display }}<br>
+          Frequência: {{ plano.frequencia_semanal }}x/semana — Duração: {{ plano.duracao_semanas }} semanas
+          {% if perms.academia.remover_treinos %}
+            <a href="{% url 'plano_remover' plano.pk %}" class="btn btn-danger btn-sm float-end">Remover</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <div class="alert alert-info mt-3">Nenhum treino aprovado disponível.</div>
+  {% endif %}
+  <a href="/" class="btn btn-secondary mt-3">Voltar</a>
+</div>
+{% endblock %}
