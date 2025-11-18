@@ -1,6 +1,5 @@
 # Academia - MVP de Recomendação de Treinos com Machine Learning
 
-## Sobre o Projeto
 Este projeto é um MVP que demonstra como Machine Learning pode apoiar instrutores de academia na criação de treinos personalizados. Utilizando Django e uma rede neural simples, o sistema analisa dados dos alunos e recomenda planos de treinos, reduzindo a variabilidade manual e melhorando o processo de decisão. O objetivo é mostrar, dentro do contexto da disciplina de Sistemas de Apoio à Decisão, como IA pode estruturar e padronizar um fluxo antes totalmente subjetivo.
 
 ## Contexto e Problema Decisório
@@ -148,6 +147,21 @@ O sistema usa permissões granulares:
 - `gerenciar_permissoes`: Alterar permissões de usuários.
 - `visualizar_usuarios`, `criar_usuarios`, `editar_usuarios`, `deletar_usuarios`: CRUD de usuários.
 
+## Requisitos do Sistema
+
+### Requisitos Funcionais (RF)
+
+- **RF-01:** Cadastro de usuários no sistema ✔️
+- **RF-02:** Sugerir treinos personalizados para cada usuário ✔️
+- **RF-03:** Dashboard gerencial ✔️
+- **RF-04:** Perfil de acesso ✔️
+
+### Requisitos Não Funcionais (RNF)
+
+- **RNF-01:** Desempenho (sistema sem lentidão) ✔️
+- **RNF-02:** Disponibilidade ✔️
+- **RNF-03:** Portabilidade (interface responsiva) ✔️
+- **RNF-04:** Usabilidade ✔️
 
 ## Diagramas
 
