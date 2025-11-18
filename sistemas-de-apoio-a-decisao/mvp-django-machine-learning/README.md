@@ -91,7 +91,7 @@ Machine Learning (ML) é uma técnica de IA que permite ao sistema aprender padr
    ```
 
 
-5. **Crie os perfis de usuários padrão:**
+5. **Crie os perfis padrão (necessário para evitar erro ao criar superusuário):**
    ```bash
    python manage.py criar_perfis
    ```
@@ -147,6 +147,17 @@ O sistema usa permissões granulares:
 - `cadastrar_treinos`: Cadastrar novos treinos.
 - `gerenciar_permissoes`: Alterar permissões de usuários.
 - `visualizar_usuarios`, `criar_usuarios`, `editar_usuarios`, `deletar_usuarios`: CRUD de usuários.
+
+
+## Diagramas
+
+### Diagrama de Caso de Uso
+
+![Diagrama de Caso de Uso](./assets/diagrama_caso_de_uso.jpg)
+
+### Diagrama Lógico do Banco de Dados
+
+![Diagrama Lógico do Banco de Dados](./assets/diagrama_logico_banco.png)
 
 ## Estrutura do Projeto
 
