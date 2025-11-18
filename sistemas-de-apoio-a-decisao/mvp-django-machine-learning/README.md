@@ -90,22 +90,33 @@ Machine Learning (ML) é uma técnica de IA que permite ao sistema aprender padr
    python manage.py migrate
    ```
 
-5. **Popule dados iniciais (treinos):**
+
+5. **Crie os perfis de usuários padrão:**
+   ```bash
+   python manage.py criar_perfis
+   ```
+
+6. **Popule usuários de exemplo (8 usuários e 2 instrutores, senha: 1234):**
+   ```bash
+   python scripts/popular_usuarios.py
+   ```
+
+7. **Popule dados iniciais (treinos):**
    ```bash
    python scripts/populate_treinos.py
    ```
 
-6. **Treine o modelo de IA (opcional, se não houver modelo pré-treinado):**
+8. **Treine o modelo de IA (opcional, se não houver modelo pré-treinado):**
    ```bash
    python scripts/treinar_modelo_treino_nn.py
    ```
 
-7. **Crie um superusuário:**
+9. **Crie um superusuário:**
    ```bash
    python manage.py createsuperuser
    ```
 
-8. **Execute o servidor:**
+10. **Execute o servidor:**
    ```bash
    python manage.py runserver
    ```
